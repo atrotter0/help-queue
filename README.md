@@ -36,4 +36,4 @@ A React app that simulates a
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2018 **Abel Trotter
+Copyright (c) 2018 **Abel Trotter**
