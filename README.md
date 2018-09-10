@@ -6,7 +6,7 @@
 
 ## Description
 
-A React app that simulates a 
+A React app that simulates a help queue.
 
 ## Setup on OSX
 
