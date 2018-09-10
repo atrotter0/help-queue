@@ -1,13 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const NewTicketForm = () => {
+const NewTicketForm = (props) => {
   const handleNewTicketFormSubmit = (e) => {
     e.preventDefault();
 
     const names = e.target.elements.names.value.trim();
     const location = e.target.elements.location.value.trim();
     const issue = e.target.elements.issue.value.trim();
-    console.log(names + ' ' + location + ' ' + issue);
+    props.onNewTicketCreation({names: names, location: location, issue: issue});
+    console.log(names);
+    console.log(location);
+    console.log(issue);
     resetFormInputs(e);
   }
   const resetFormInputs = (e) => {
@@ -40,5 +44,9 @@ const NewTicketForm = () => {
     </div>
   );
 }
+
+NewTicketForm.propTypes = {
+  onNewTicketCreation: PropTypes.func
+};
 
 export default NewTicketForm;
