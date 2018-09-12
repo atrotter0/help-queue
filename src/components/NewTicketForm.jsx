@@ -19,10 +19,6 @@ const NewTicketForm = (props) => {
         timeOpen: new Moment()
       }
     );
-    console.log(names);
-    console.log(location);
-    console.log(issue);
-    console.log(timeOpen);
     resetFormInputs(e);
   }
   const resetFormInputs = (e) => {
