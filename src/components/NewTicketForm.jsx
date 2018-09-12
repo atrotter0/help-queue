@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
+import Moment from 'moment';
 
 const NewTicketForm = (props) => {
   const handleNewTicketFormSubmit = (e) => {
@@ -9,10 +10,19 @@ const NewTicketForm = (props) => {
     const names = e.target.elements.names.value.trim();
     const location = e.target.elements.location.value.trim();
     const issue = e.target.elements.issue.value.trim();
-    props.onNewTicketCreation({names: names, location: location, issue: issue, id: v4()});
+    props.onNewTicketCreation(
+      {
+        names: names,
+        location: location,
+        issue: issue,
+        id: v4(),
+        timeOpen: new Moment()
+      }
+    );
     console.log(names);
     console.log(location);
     console.log(issue);
+    console.log(timeOpen);
     resetFormInputs(e);
   }
   const resetFormInputs = (e) => {
