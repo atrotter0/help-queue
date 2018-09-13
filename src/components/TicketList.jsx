@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 const TicketList = (props) => {
   return(
     <div>
-      {props.ticketList.map((ticket, index) =>
+      {props.ticketList.map((ticket) =>
         <Ticket
           names={ticket.names}
           location={ticket.location}
           issue={ticket.issue}
           formattedWaitTime={ticket.formattedWaitTime}
+          currentPath={props.currentPath}
           key={ticket.id}
         />
       )}

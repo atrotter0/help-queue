@@ -10,7 +10,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterTicketList: []
+      masterTicketList: [],
+      selectedTicker: null
     };
     this.handleAddTicket = this.handleAddTicket.bind(this);
   }
@@ -39,7 +40,7 @@ class App extends React.Component {
     newMasterTicketList.forEach((ticket) =>
       ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
     );
-    this.setState({masterTicketList: newMasterTicketList})
+    this.setState({masterTicketList: newMasterTicketList});
   }
 
   render() {
@@ -57,7 +58,7 @@ class App extends React.Component {
           />
           <Route
             path='/admin'
-            render={() => <Admin ticketList={this.state.masterTicketList} />}
+            render={(props) => <Admin ticketList={this.state.masterTicketList} currentPath={props.location.pathname} />}
           />
         </Switch>
       </div>
