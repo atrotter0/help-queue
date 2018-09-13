@@ -11,6 +11,7 @@ const Admin = (props) => {
       <TicketList
         ticketList={props.ticketList}
         currentPath={props.currentPath}
+        onTicketSelection={props.onTicketSelection}
       />
     </div>
   );
@@ -18,7 +19,8 @@ const Admin = (props) => {
 
 Admin.propTypes = {
   ticketList: PropTypes.array,
-  currentPath: PropTypes.string
+  currentPath: PropTypes.string,
+  onTicketSelection: PropTypes.func.isRequired
 };
 
 export default Admin;

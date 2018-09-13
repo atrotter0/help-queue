@@ -11,9 +11,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       masterTicketList: [],
-      selectedTicker: null
+      selectedTicket: null
     };
     this.handleAddTicket = this.handleAddTicket.bind(this);
+    this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +44,11 @@ class App extends React.Component {
     this.setState({masterTicketList: newMasterTicketList});
   }
 
+  handleChangingSelectedTicket(ticket) {
+    this.setState({selectedTicket: ticket});
+    alert(`selected ticket state is now ${this.state.selectedTicket.names}`);
+  }
+
   render() {
     return (
       <div>
@@ -58,7 +64,9 @@ class App extends React.Component {
           />
           <Route
             path='/admin'
-            render={(props) => <Admin ticketList={this.state.masterTicketList} currentPath={props.location.pathname} />}
+            render={(props) => <Admin ticketList={this.state.masterTicketList} 
+                                currentPath={props.location.pathname}
+                                onTicketSelection={this.handleChangingSelectedTicket} />}
           />
         </Switch>
       </div>

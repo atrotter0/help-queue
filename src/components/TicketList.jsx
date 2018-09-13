@@ -12,6 +12,7 @@ const TicketList = (props) => {
           issue={ticket.issue}
           formattedWaitTime={ticket.formattedWaitTime}
           currentPath={props.currentPath}
+          onTicketSelection={props.onTicketSelection}
           key={ticket.id}
         />
       )}
@@ -20,7 +21,9 @@ const TicketList = (props) => {
 }
 
 TicketList.propTypes = {
-  ticketList: PropTypes.array
+  ticketList: PropTypes.array,
+  currentPath: PropTypes.string,
+  onTicketSelection: PropTypes.func
 };
 
 export default TicketList;
