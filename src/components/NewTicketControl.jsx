@@ -11,9 +11,11 @@ class NewTicketControl extends React.Component {
     };
     this.handleConfirmation = this.handleConfirmation.bind(this);
   }
+
   handleConfirmation() {
     this.setState( { formVisibleOnPage: true });
   }
+
   render() {
     return(
       <div>
