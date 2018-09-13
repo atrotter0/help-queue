@@ -13,6 +13,7 @@ const TicketList = (props) => {
           formattedWaitTime={ticket.formattedWaitTime}
           currentPath={props.currentPath}
           onTicketSelection={props.onTicketSelection}
+          ticketObject={ticket}
           key={ticket.id}
         />
       )}

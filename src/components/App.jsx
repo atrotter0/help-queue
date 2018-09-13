@@ -36,7 +36,6 @@ class App extends React.Component {
   }
 
   updateTicketElapsedWaitTime() {
-    console.log("check");
     let newMasterTicketList = this.state.masterTicketList.slice();
     newMasterTicketList.forEach((ticket) =>
       ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
@@ -46,7 +45,6 @@ class App extends React.Component {
 
   handleChangingSelectedTicket(ticket) {
     this.setState({selectedTicket: ticket});
-    alert(`selected ticket state is now ${this.state.selectedTicket.names}`);
   }
 
   render() {
@@ -64,9 +62,10 @@ class App extends React.Component {
           />
           <Route
             path='/admin'
-            render={(props) => <Admin ticketList={this.state.masterTicketList} 
+            render={(props) => <Admin ticketList={this.state.masterTicketList}
                                 currentPath={props.location.pathname}
-                                onTicketSelection={this.handleChangingSelectedTicket} />}
+                                onTicketSelection={this.handleChangingSelectedTicket}
+                                selectedTicket={this.state.selectedTicket}/>}
           />
         </Switch>
       </div>

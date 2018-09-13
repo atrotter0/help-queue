@@ -7,7 +7,9 @@ const Admin = (props) => {
   return(
     <div>
       <h2>Admin</h2>
-      <TicketDetail />
+      {props.selectedTicket && (
+        <TicketDetail selectedTicket={props.selectedTicket} />
+      )}
       <TicketList
         ticketList={props.ticketList}
         currentPath={props.currentPath}
@@ -20,7 +22,8 @@ const Admin = (props) => {
 Admin.propTypes = {
   ticketList: PropTypes.array,
   currentPath: PropTypes.string,
-  onTicketSelection: PropTypes.func.isRequired
+  onTicketSelection: PropTypes.func.isRequired,
+  selectedTicket: PropTypes.object
 };
 
 export default Admin;
